@@ -12,6 +12,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(routes);
 
+//Iniciando o servidor
 app.listen(PORT, () => {
   console.log("Server has started on port 8000");
 });

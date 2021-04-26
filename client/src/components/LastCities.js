@@ -8,7 +8,7 @@ export default function LastCities({ lastCity }) {
   const showCity = (data) => {
     return data.map((value) => (
       <div>
-        <p>{value.last_cities}</p>
+        <p key={value.id}>{value.last_cities}</p>
       </div>
     ));
   };

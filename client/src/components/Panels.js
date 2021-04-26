@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import "../components/styles.css";
 import ResultLeft from "./ResultLeft";
 import TopCities from "./TopCities";
@@ -20,10 +20,12 @@ export default function PanelLeft() {
       .then((response) => {
         setDataCity(response.data);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.log(error);
+      });
 
     await api
-      .get("http://localhost:8000/city/popularCities")
+      .get("city/popularCities")
       .then((response) => {
         setTopCity(response.data);
       })
@@ -35,7 +37,7 @@ export default function PanelLeft() {
   };
 
   return (
-    <Fragment>
+    <>
       <div className="app-container">
         <div className="left-container">
           <h2>Dados sobre as cidades</h2>
@@ -71,6 +73,6 @@ export default function PanelLeft() {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 }

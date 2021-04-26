@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <img src="./tech-logo.png" alt="logo" />
-      <Panels className="panel" />
+      <Panels />
     </>
   );
 }

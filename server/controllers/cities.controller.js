@@ -21,8 +21,7 @@ const createCity = async (req, res) => {
 
     res.json(newCity.rows[0]);
   } catch (err) {
-    console.error(err);
-    return res.status(404).send(err.data);
+    return res.send("Not Found");
   }
 };
 

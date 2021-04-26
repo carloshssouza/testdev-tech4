@@ -7,7 +7,7 @@ export default function TopCities({ topCity }) {
   const showCity = (data) => {
     return data.map((value) => (
       <div>
-        <p>{value.name}</p>
+        <p key={value.id}>{value.name}</p>
       </div>
     ));
   };
