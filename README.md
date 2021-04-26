@@ -67,12 +67,12 @@ Agora para o back-end:
 
 ---
 
-USER='postgres'
-PASSWORD='{Senha}'
-HOST='localhost'
-PORT=5432
-DATABASE='{Nome}'
-KEY={Key}
+USER='postgres'<br>
+PASSWORD='{Senha}'<br>
+HOST='localhost'<br>
+PORT=5432<br>
+DATABASE='{Nome}'<br>
+KEY={Key}<br>
 
 ---
 
