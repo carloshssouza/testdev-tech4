@@ -1,13 +1,15 @@
-import "./App.css";
-import PainelDireito from "./components/PainelDireito";
-import PainelEsquerdo from "./components/PainelEsquerdo";
+import React from "react";
+
+import Panels from "./components/Panels";
+
+import "./components/styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <PainelDireito />
-      <PainelEsquerdo />
-    </div>
+    <>
+      <img src="./tech-logo.png" alt="logo" />
+      <Panels className="panel" />
+    </>
   );
 }
 

@@ -1,33 +1,32 @@
 import axios from "axios";
 import pool from "../db.js";
+import modelCity from "../models/city.models.js";
 
+//Creating the city and save in database
 const createCity = async (req, res) => {
   try {
     //Entrada
-    let city = "Rio de Janeiro";
+    const { cityName } = req.body;
 
     const { data } = await axios(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&appid=70a59bf021f595348b10bbbe1a94da04`
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&lang=pt&appid=70a59bf021f595348b10bbbe1a94da04`
     );
+    const { name, country, temperature, humidity, weather } = modelCity(data);
 
-    let name = data.name;
-    let country = data.sys.country;
-    let temperature = data.main.temp - 273.15;
-    let humidity = data.main.humidity;
-    let weather = data.weather[0].description;
-
-    //Saida para o banco
+    // Saida para o banco
     const newCity = await pool.query(
       "INSERT INTO city(name, country, temperature, humidity, weather) VALUES($1, $2, $3, $4, $5) RETURNING *",
       [name, country, temperature, humidity, weather]
     );
+
     res.json(newCity.rows[0]);
   } catch (err) {
     console.error(err);
-    return res.status(404).send("Cidade não encontrada");
+    return res.status(404).send(err.data);
   }
 };
 
+//Accessing the database and make the search
 const getPopularCities = async (req, res) => {
   try {
     const mostPopularCities = await pool.query(
@@ -40,10 +39,11 @@ const getPopularCities = async (req, res) => {
   }
 };
 
+//Accessing the database and make the search
 const getLastCities = async (req, res) => {
   try {
     const lastCities = await pool.query(
-      "SELECT name AS last_cities,MAX(id) FROM city GROUP BY Last_cities ORDER BY MAX(id) DESC LIMIT 3"
+      "SELECT name AS last_cities, MAX(id) FROM city GROUP BY Last_cities ORDER BY MAX(id) DESC LIMIT 3"
     );
     res.json(lastCities.rows);
   } catch (err) {

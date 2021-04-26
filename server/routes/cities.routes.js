@@ -1,5 +1,4 @@
 import express from "express";
-import axios from "axios";
 import cityController from "../controllers/cities.controller.js";
 
 const routes = express.Router();
