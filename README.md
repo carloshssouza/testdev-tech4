@@ -43,28 +43,26 @@
 ### **Instruções para executar o projeto:**
 
 **1) Clone o projeto em uma pasta:**
-Basta utilizar em seu terminal:
+Basta utilizar em seu terminal: <br>
 `git clone https://github.com/carloshssouza/testdev-tech4.git`
 
-**2) Baixe as dependências para poder rodar o projeto:**
-Foi criado o diretório `testdev-tech4/`, após a clonagem.
+**2) Baixe as dependências para poder rodar o projeto:** <br>
 
----
+Foi criado o diretório `testdev-tech4/`, após a clonagem. Entre então no novo diretório:
 
-Entre então no novo diretório:  
 _Comandos no Terminal_:
 
-Agora adicione as dependências do front-end:
+Adicione as dependências do front-end:
 
 - Digite: `cd testdev-tech4/`
-- Entre no diretório do front-end : ` cd client/`
+- Entre no diretório do front-end : ` cd client`
 - Utilize: `npm install`,
 
 Agora para o back-end:
 
 - Volte um diretório acima: `cd ..`
 - Entre no diretório do back-end: `cd server`
-- Utilize npm ou yarn para instalar as dependências do back-end: `npm install`
+- Utilize: `npm install`
 - Crie um arquivo .env e digite o código:
 
 ---
